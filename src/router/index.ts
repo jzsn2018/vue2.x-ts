@@ -1,7 +1,7 @@
 /*
  * @Date: 2021-04-13 17:22:23
  * @LastEditors: Timothy
- * @LastEditTime: 2021-04-14 15:28:31
+ * @LastEditTime: 2021-04-14 15:46:02
  * @Description:
  */
 import Vue from 'vue'
@@ -12,7 +12,17 @@ Vue.use(VueRouter)
 const routes: Array<RouteConfig> = [
   {
     path: '/',
-    component: () => import('@/views/layout/index.vue')
+    component: () => import('@/views/layout/index.vue'),
+    children: [
+      {
+        path: '',
+        component: () => import('@/views/home/index.vue')
+      },
+      {
+        path: '/login',
+        component: () => import('@/views/login/index.vue')
+      }
+    ]
   }
 ]
 
